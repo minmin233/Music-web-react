@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { memo } from 'react';
+import {renderRoutes} from 'react-router-config';
 
-function App() {
+import routes from './router';
+
+import YyHeader from './components/header';
+import YyFooter from './components/footer';
+import {HashRouter} from 'react-router-dom';
+
+const App = memo(() => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <HashRouter>
+        <YyHeader>{renderRoutes(routes)}</YyHeader>
+        <h2>Content</h2>
+        <YyFooter></YyFooter>
+      </HashRouter>
     </div>
   );
-}
+});
 
 export default App;
